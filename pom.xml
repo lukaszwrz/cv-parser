@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+	</parent>
+	<groupId>pl.wrzaszcz</groupId>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>cvparser</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+<!--	<packaging>jar</packaging>-->
+	<packaging>${project.packaging}</packaging>
+	<name>cvparser</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<junit.jupiter.version>5.5.2</junit.jupiter.version>
+		<junit.platform.version>1.5.2</junit.platform.version>
+		<jquery.version>3.4.1</jquery.version>
+		<bootstrap.version>4.4.1</bootstrap.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<project.packaging>jar</project.packaging>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<project.packaging>war</project.packaging>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-devtools</artifactId>-->
+<!--			<optional>true</optional>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${jquery.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>com.google.code.gson</groupId>-->
+<!--			<artifactId>gson</artifactId>-->
+<!--			<version>2.2.4</version>-->
+<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>1.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parsers</artifactId>
+			<version>1.20</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-langdetect</artifactId>
+			<version>1.20</version>
+		</dependency>
+
+<!--		<dependency>-->
+<!--			<groupId>org.jsoup</groupId>-->
+<!--			<artifactId>jsoup</artifactId>-->
+<!--			<version>1.11.3</version>-->
+<!--		</dependency>-->
+
+	</dependencies>
+
+	<build>
+		<finalName>cvparser</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>maven</id>
+			<name>maven</name>
+			<url>https://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>apache</id>
+			<name>apache</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+	</repositories>
+
+</project>
